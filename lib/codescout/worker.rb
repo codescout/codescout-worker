@@ -1,3 +1,4 @@
+require "codescout/worker/version"
 require "codescout/worker/build"
 
 module Codescout
