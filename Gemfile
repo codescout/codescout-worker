@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+ruby "2.1.2"
 
 gem "redis",      "3.1.0"
 gem "sidekiq",    "3.2.3"
