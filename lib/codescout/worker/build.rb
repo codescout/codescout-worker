@@ -10,7 +10,7 @@ module Codescout
 
       def run
         container = create_container
-
+        
         container.tap(&:start).attach do |stream, chunk|
           STDOUT.puts("#{chunk}")
         end
@@ -32,7 +32,7 @@ module Codescout
       end
 
       def image_name
-        ENV["DOCKER_IMAGE"] || "codescout"
+        ENV["DOCKER_IMAGE"]
       end
 
       def env_vars
