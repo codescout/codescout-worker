@@ -14,3 +14,4 @@ Dotenv.load
 require_var("REDIS_URL")
 require_var("CODESCOUT_URL")
 require_var("DOCKER_HOST")
+require_var("DOCKER_IMAGE")
