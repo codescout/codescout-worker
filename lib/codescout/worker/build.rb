@@ -4,6 +4,8 @@ require "securerandom"
 module Codescout
   class Worker
     class Build
+      BUILD_TIMEOUT = 300 # 5 minutes
+
       def initialize(push_token)
         @push_token = push_token
       end
@@ -17,7 +19,7 @@ module Codescout
           end
         end
 
-        container.wait(120)
+        container.wait(BUILD_TIMEOUT)
         container.kill
         container.delete(force: true)
       end
