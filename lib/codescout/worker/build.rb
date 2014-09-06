@@ -10,9 +10,11 @@ module Codescout
 
       def run
         container = create_container
-        
-        container.tap(&:start).attach do |stream, chunk|
-          STDOUT.puts("#{chunk}")
+
+        if ENV["DEBUG"]
+          container.tap(&:start).attach do |stream, chunk|
+            STDOUT.puts("#{chunk}")
+          end
         end
 
         container.wait(120)
