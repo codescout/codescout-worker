@@ -17,7 +17,14 @@ RUN apt-add-repository ppa:brightbox/ruby-ng && \
 
 RUN echo "gem: --no-rdoc --no-ri" > /etc/gemrc
 RUN gem update --system
+RUN gem install bundler
 
-ADD . /app
-WORKDIR /app
+RUN useradd -m worker
+USER worker
+
+RUN git clone https://github.com/codescout/codescout-worker.git /home/worker/app
+WORKDIR /home/worker/app
 RUN bundle install --path .bundle -j4 --deployment
+
+CMD ["bundle", "exec", "foreman", "start"]
+
