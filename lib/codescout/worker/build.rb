@@ -13,10 +13,8 @@ module Codescout
       def run
         container = create_container
 
-        if ENV["DEBUG"]
-          container.tap(&:start).attach do |stream, chunk|
-            STDOUT.puts("#{chunk}")
-          end
+        container.tap(&:start).attach do |stream, chunk|
+          STDOUT.print("[#{stream}] #{chunk}")
         end
 
         container.wait(BUILD_TIMEOUT)
@@ -28,7 +26,7 @@ module Codescout
 
       def create_container
         Docker::Container.create(
-          "name"         => "codescout-#{SecureRandom.hex(8)}",
+          "name"         => "codescout-#{@push_token}",
           "Cmd"          => ["codescout-runner"],
           "Image"        => image_name,
           "Env"          => env_vars,
