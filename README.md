@@ -1,5 +1,7 @@
 # codescout-worker
 
+Sidekiq-based worker application to perform code analysis builds for Code Scout.
+
 ## Requirements
 
 - Ruby 2.1
