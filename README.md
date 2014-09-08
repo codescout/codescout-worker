@@ -24,6 +24,10 @@ cp .env.sample .env
 
 Then adjust environment variables in the `.env` file:
 
+## Configuration
+
+Foreman uses `.env` file that contain environment variables:
+
 - `REDIS_URL`     - Redis server connection URL
 - `DOCKER_HOST`   - Docker connection string. Example: `tcp://127.0.0.1:5555`.
 - `DOCKER_IMAGE`  - Docker image that holds codescout scripts
