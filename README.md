@@ -51,6 +51,22 @@ This project uses RSpec as a testing framework. Execute tests with:
 bundle exec rake test
 ```
 
+## Docker
+
+You can run codescout-worker via Docker:
+
+```
+# Install docker image on your system
+docker pull sosedoff/codescout-worker
+
+# Start worker daemon
+docker run -d \
+           -e REDIS_URL=url \
+           -e CODESCOUT_URL=url \
+           -e DOCKER_HOST=host \
+           -e DOCKER_IMAGE=sosedoff/codescout
+```
+
 ## License
 
 The MIT License (MIT)
